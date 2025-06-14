@@ -1,6 +1,6 @@
 import { School } from "../database/models/school.js";
 
-//for getting all the users
+//for getting all the schools
 
 export const getSchools = async (req, res) => {
   try {
@@ -123,3 +123,26 @@ async function getSearchSuggestions(partialName) {
     .limit(5)
     .select("name -_id"); //only returns names
 }
+
+//function for creating a new school / listing of the school
+
+// export const createSchool = async (req, res) => {
+//   const { name, type, fee, location, system } = req.body;
+
+//   try {
+//     const schoolData = { name, type, fee, system, location };
+//     const newSchool = await School.create(schoolData);
+
+//     res.status(200).json({
+//       sucess: true,
+//       message: "Succesfully created new school",
+//       data: newSchool,
+//     });
+//   } catch (error) {
+//     console.log("Failed could not create new school", error);
+//     res.status(500).json({
+//       success: false,
+//       message: "Could not create a new school",
+//     });
+//   }
+// };

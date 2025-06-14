@@ -22,13 +22,22 @@ app.use(
     origin: "http://localhost:5371",
   })
 );
+
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:5371");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+//   );
+// });
+
 app.get("/", (req, res) => {
   res.json({
     success: true,
     data: "This is the data that will be diplayed",
   });
 });
-
+// console.log(process.env.CONNECTION_STRING);
 app.use("/api", schoolRouter, collectionRouter);
 
 app.listen(PORT, () => {

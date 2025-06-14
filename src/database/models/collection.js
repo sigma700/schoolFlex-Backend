@@ -19,8 +19,12 @@ const collectionSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-console.log("New model with the name created");
 
 collectionSchema.index({ user: 1, school: 1 }, { unique: true });
 
 export const Collection = mongoose.model("Collection", collectionSchema);
+if (Collection) {
+  console.log("A new  Collection was successfully created");
+} else {
+  console.log("Failed to create a new collection");
+}

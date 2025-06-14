@@ -8,8 +8,13 @@ import { School } from "../database/models/school.js";
 //HELPER FUNCTION TO ALLOW ADDING TO THE COLLECTION
 
 export const addToCollection = async (req, res) => {
+  //finding the user id from the request body
   const { userId } = req.user._id;
+  console.log(userId);
+
   const { schoolId } = req.body;
+  console.log(schoolId);
+
   const newCollection = await Collection.create({
     user: userId,
     school: schoolId,
@@ -27,8 +32,16 @@ export const getCollection = async (req, res) => {
     const collection = await Collection.find({ user: userId }) //nice
       .populate({
         path: "school",
-        select: "name , description , images , type",
+        select: "name  description  images  type",
       });
+
+    //debugging
+    // const rawData = await Collection.find({ user: userId }).lean();
+    // if (rawData) {
+    //   console.log(rawData);
+    // } else {
+    //   console.log("Could not find the rawdata");
+    // }
 
     res.status(200).json({
       success: true,

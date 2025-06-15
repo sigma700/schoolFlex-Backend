@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: "http://localhost:5371",
+    origin: "https://mern-frontend-final.onrender.com/",
   })
 );
 

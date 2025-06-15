@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: "https://mern-frontend-final.onrender.com/",
+    origin: "https://react-final-schoolflex-2.onrender.com/",
   })
 );
 
